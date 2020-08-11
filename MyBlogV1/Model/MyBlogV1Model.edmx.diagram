@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="71297933fb574e748daf60187b911f9f" Name="Diagram1">
+        <EntityTypeShape EntityType="MyBlogV1DBModel.Article" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyBlogV1DBModel.ArticleCategoryInt" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyBlogV1DBModel.Category" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyBlogV1DBModel.Comment" Width="1.5" PointX="5.25" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyBlogV1DBModel.Favorite" Width="1.5" PointX="8.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyBlogV1DBModel.Following" Width="1.5" PointX="3" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyBlogV1DBModel.Reply" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyBlogV1DBModel.Role" Width="1.5" PointX="3.75" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyBlogV1DBModel.User" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyBlogV1DBModel.UserRoleInt" Width="1.5" PointX="6" PointY="16.375" IsExpanded="true" />
+        <AssociationConnector Association="MyBlogV1DBModel.FK__Article__UserId__72C60C4A" ManuallyRouted="false" />
+        <AssociationConnector Association="MyBlogV1DBModel.FK__ArticleCa__Artic__75A278F5" ManuallyRouted="false" />
+        <AssociationConnector Association="MyBlogV1DBModel.FK__Comment__Article__7D439ABD" ManuallyRouted="false" />
+        <AssociationConnector Association="MyBlogV1DBModel.FK__Favorite__Articl__05D8E0BE" ManuallyRouted="false" />
+        <AssociationConnector Association="MyBlogV1DBModel.FK__Reply__ArticleId__01142BA1" ManuallyRouted="false" />
+        <AssociationConnector Association="MyBlogV1DBModel.FK__ArticleCa__Categ__76969D2E" ManuallyRouted="false" />
+        <AssociationConnector Association="MyBlogV1DBModel.FK__Category__UserId__6FE99F9F" ManuallyRouted="false" />
+        <AssociationConnector Association="MyBlogV1DBModel.FK__Comment__UserId__7E37BEF6" ManuallyRouted="false" />
+        <AssociationConnector Association="MyBlogV1DBModel.FK__Favorite__UserId__06CD04F7" ManuallyRouted="false" />
+        <AssociationConnector Association="MyBlogV1DBModel.FK__Following__Follo__7A672E12" ManuallyRouted="false" />
+        <AssociationConnector Association="MyBlogV1DBModel.FK__Following__UserI__797309D9" ManuallyRouted="false" />
+        <AssociationConnector Association="MyBlogV1DBModel.FK__Reply__ReplyToUs__02FC7413" ManuallyRouted="false" />
+        <AssociationConnector Association="MyBlogV1DBModel.FK__Reply__UserId__02084FDA" ManuallyRouted="false" />
+        <AssociationConnector Association="MyBlogV1DBModel.FK__UserRoleI__RoleI__6D0D32F4" ManuallyRouted="false" />
+        <AssociationConnector Association="MyBlogV1DBModel.FK__UserRoleI__UserI__6C190EBB" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
