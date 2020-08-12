@@ -3,3 +3,16 @@ D:\github\MyBlogV1\MyBlogV1\DBSession\bin\Debug\DBSession.pdb
 D:\github\MyBlogV1\MyBlogV1\DBSession\obj\Debug\DBSession.csproj.CoreCompileInputs.cache
 D:\github\MyBlogV1\MyBlogV1\DBSession\obj\Debug\DBSession.dll
 D:\github\MyBlogV1\MyBlogV1\DBSession\obj\Debug\DBSession.pdb
+D:\github\MyBlogV1\MyBlogV1\DBSession\bin\Debug\DAL.dll
+D:\github\MyBlogV1\MyBlogV1\DBSession\bin\Debug\EntityFramework.dll
+D:\github\MyBlogV1\MyBlogV1\DBSession\bin\Debug\EntityFramework.SqlServer.dll
+D:\github\MyBlogV1\MyBlogV1\DBSession\bin\Debug\IDAL.dll
+D:\github\MyBlogV1\MyBlogV1\DBSession\bin\Debug\Model.dll
+D:\github\MyBlogV1\MyBlogV1\DBSession\bin\Debug\DAL.pdb
+D:\github\MyBlogV1\MyBlogV1\DBSession\bin\Debug\IDAL.pdb
+D:\github\MyBlogV1\MyBlogV1\DBSession\bin\Debug\Model.pdb
+D:\github\MyBlogV1\MyBlogV1\DBSession\bin\Debug\Model.dll.config
+D:\github\MyBlogV1\MyBlogV1\DBSession\bin\Debug\EntityFramework.xml
+D:\github\MyBlogV1\MyBlogV1\DBSession\bin\Debug\EntityFramework.SqlServer.xml
+D:\github\MyBlogV1\MyBlogV1\DBSession\obj\Debug\DBSession.csprojAssemblyReference.cache
+D:\github\MyBlogV1\MyBlogV1\DBSession\obj\Debug\DBSession.csproj.CopyComplete

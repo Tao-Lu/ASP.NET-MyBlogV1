@@ -15,18 +15,18 @@ namespace DAL
     /// </summary>
     public class DbContextFactory
     {
-        private static DbContext dbContext;
+        private static DbContext _dbContext;
 
         public static DbContext CreateDbContext()
         {
-            dbContext = (DbContext) CallContext.GetData("DbContext");
-            if(dbContext == null)
+            _dbContext = (DbContext) CallContext.GetData("DbContext");
+            if(_dbContext == null)
             {
-                dbContext = new MyBlogV1DBEntities();
-                CallContext.SetData("DbContext", dbContext);
+                _dbContext = new MyBlogV1DBEntities();
+                CallContext.SetData("DbContext", _dbContext);
             }
             
-            return dbContext;
+            return _dbContext;
         }
     }
 }
