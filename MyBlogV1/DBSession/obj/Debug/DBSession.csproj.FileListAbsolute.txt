@@ -1,0 +1,5 @@
+D:\github\MyBlogV1\MyBlogV1\DBSession\bin\Debug\DBSession.dll
+D:\github\MyBlogV1\MyBlogV1\DBSession\bin\Debug\DBSession.pdb
+D:\github\MyBlogV1\MyBlogV1\DBSession\obj\Debug\DBSession.csproj.CoreCompileInputs.cache
+D:\github\MyBlogV1\MyBlogV1\DBSession\obj\Debug\DBSession.dll
+D:\github\MyBlogV1\MyBlogV1\DBSession\obj\Debug\DBSession.pdb

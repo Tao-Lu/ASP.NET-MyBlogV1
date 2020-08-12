@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\..\BlogSystem\BlogSystem\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\..\BlogSystem\BlogSystem\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,7 +47,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArticleCategoryIntDAL.cs" />
+    <Compile Include="ArticleDAL.cs" />
+    <Compile Include="BaseDAL.cs" />
+    <Compile Include="CategoryDAL.cs" />
+    <Compile Include="CommentDAL.cs" />
+    <Compile Include="DbContextFactory.cs" />
+    <Compile Include="FavoriteDAL.cs" />
+    <Compile Include="FollowingDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReplyDAL.cs" />
+    <Compile Include="RoleDAL.cs" />
+    <Compile Include="UserDAL.cs" />
+    <Compile Include="UserRoleIntDAL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IDAL\IDAL.csproj">
+      <Project>{4282e7eb-f1c6-4239-899e-f205daceb05b}</Project>
+      <Name>IDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{7182f487-56ec-414d-8838-78d1a9c54425}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

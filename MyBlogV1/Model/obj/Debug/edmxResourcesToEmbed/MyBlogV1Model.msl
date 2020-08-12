@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MyBlogV1DBModelStoreContainer" CdmEntityContainer="MyBlogV1DBEntities">
+    <EntitySetMapping Name="Article">
+      <EntityTypeMapping TypeName="MyBlogV1DBModel.Article">
+        <MappingFragment StoreEntitySet="Article">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="LikeCount" ColumnName="LikeCount" />
+          <ScalarProperty Name="FavoriteCount" ColumnName="FavoriteCount" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="IsRemoved" ColumnName="IsRemoved" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ArticleCategoryInt">
+      <EntityTypeMapping TypeName="MyBlogV1DBModel.ArticleCategoryInt">
+        <MappingFragment StoreEntitySet="ArticleCategoryInt">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="IsRemoved" ColumnName="IsRemoved" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Category">
+      <EntityTypeMapping TypeName="MyBlogV1DBModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="IsRemoved" ColumnName="IsRemoved" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comment">
+      <EntityTypeMapping TypeName="MyBlogV1DBModel.Comment">
+        <MappingFragment StoreEntitySet="Comment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="IsRemoved" ColumnName="IsRemoved" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Favorite">
+      <EntityTypeMapping TypeName="MyBlogV1DBModel.Favorite">
+        <MappingFragment StoreEntitySet="Favorite">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+          <ScalarProperty Name="IsRemoved" ColumnName="IsRemoved" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Following">
+      <EntityTypeMapping TypeName="MyBlogV1DBModel.Following">
+        <MappingFragment StoreEntitySet="Following">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="FollowingUserId" ColumnName="FollowingUserId" />
+          <ScalarProperty Name="IsRemoved" ColumnName="IsRemoved" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reply">
+      <EntityTypeMapping TypeName="MyBlogV1DBModel.Reply">
+        <MappingFragment StoreEntitySet="Reply">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ReplyToUserId" ColumnName="ReplyToUserId" />
+          <ScalarProperty Name="IsRemoved" ColumnName="IsRemoved" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="MyBlogV1DBModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="IsRemoved" ColumnName="IsRemoved" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="MyBlogV1DBModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PasswordEncrypted" ColumnName="PasswordEncrypted" />
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="ProfilePicPath" ColumnName="ProfilePicPath" />
+          <ScalarProperty Name="FollowerCount" ColumnName="FollowerCount" />
+          <ScalarProperty Name="FollowingCount" ColumnName="FollowingCount" />
+          <ScalarProperty Name="IsRemoved" ColumnName="IsRemoved" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRoleInt">
+      <EntityTypeMapping TypeName="MyBlogV1DBModel.UserRoleInt">
+        <MappingFragment StoreEntitySet="UserRoleInt">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="StartDateTime" ColumnName="StartDateTime" />
+          <ScalarProperty Name="EndDateTime" ColumnName="EndDateTime" />
+          <ScalarProperty Name="IsRemoved" ColumnName="IsRemoved" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

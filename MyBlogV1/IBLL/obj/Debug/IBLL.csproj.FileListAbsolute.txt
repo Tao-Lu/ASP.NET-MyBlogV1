@@ -1,0 +1,6 @@
+D:\github\MyBlogV1\MyBlogV1\IBLL\bin\Debug\IBLL.dll
+D:\github\MyBlogV1\MyBlogV1\IBLL\bin\Debug\IBLL.pdb
+D:\github\MyBlogV1\MyBlogV1\IBLL\obj\Debug\IBLL.csprojAssemblyReference.cache
+D:\github\MyBlogV1\MyBlogV1\IBLL\obj\Debug\IBLL.csproj.CoreCompileInputs.cache
+D:\github\MyBlogV1\MyBlogV1\IBLL\obj\Debug\IBLL.dll
+D:\github\MyBlogV1\MyBlogV1\IBLL\obj\Debug\IBLL.pdb

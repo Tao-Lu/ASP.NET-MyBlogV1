@@ -1,0 +1,12 @@
+D:\github\MyBlogV1\MyBlogV1\IDAL\bin\Debug\IDAL.dll
+D:\github\MyBlogV1\MyBlogV1\IDAL\bin\Debug\IDAL.pdb
+D:\github\MyBlogV1\MyBlogV1\IDAL\bin\Debug\Model.dll
+D:\github\MyBlogV1\MyBlogV1\IDAL\bin\Debug\EntityFramework.dll
+D:\github\MyBlogV1\MyBlogV1\IDAL\bin\Debug\Model.pdb
+D:\github\MyBlogV1\MyBlogV1\IDAL\bin\Debug\Model.dll.config
+D:\github\MyBlogV1\MyBlogV1\IDAL\bin\Debug\EntityFramework.xml
+D:\github\MyBlogV1\MyBlogV1\IDAL\obj\Debug\IDAL.csprojAssemblyReference.cache
+D:\github\MyBlogV1\MyBlogV1\IDAL\obj\Debug\IDAL.csproj.CoreCompileInputs.cache
+D:\github\MyBlogV1\MyBlogV1\IDAL\obj\Debug\IDAL.csproj.CopyComplete
+D:\github\MyBlogV1\MyBlogV1\IDAL\obj\Debug\IDAL.dll
+D:\github\MyBlogV1\MyBlogV1\IDAL\obj\Debug\IDAL.pdb
