@@ -10,3 +10,5 @@ D:\github\MyBlogV1\MyBlogV1\IDAL\obj\Debug\IDAL.csproj.CoreCompileInputs.cache
 D:\github\MyBlogV1\MyBlogV1\IDAL\obj\Debug\IDAL.csproj.CopyComplete
 D:\github\MyBlogV1\MyBlogV1\IDAL\obj\Debug\IDAL.dll
 D:\github\MyBlogV1\MyBlogV1\IDAL\obj\Debug\IDAL.pdb
+D:\github\MyBlogV1\MyBlogV1\IDAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\github\MyBlogV1\MyBlogV1\IDAL\bin\Debug\EntityFramework.SqlServer.xml

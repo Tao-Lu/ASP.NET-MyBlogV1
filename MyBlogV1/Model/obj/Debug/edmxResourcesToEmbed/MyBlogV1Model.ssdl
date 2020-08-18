@@ -71,7 +71,7 @@
     <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="CreateDateTime" Type="datetime" Nullable="false" />
     <Property Name="Content" Type="text" Nullable="false" />
-    <Property Name="ArticleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="CommentId" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="ReplyToUserId" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="IsRemoved" Type="bit" Nullable="false" />
@@ -110,7 +110,7 @@
     <Property Name="EndDateTime" Type="datetime" />
     <Property Name="IsRemoved" Type="bit" Nullable="false" />
   </EntityType>
-  <Association Name="FK__Article__UserId__72C60C4A">
+  <Association Name="FK__Article__UserId__208CD6FA">
     <End Role="User" Type="Self.User" Multiplicity="1" />
     <End Role="Article" Type="Self.Article" Multiplicity="*" />
     <ReferentialConstraint>
@@ -122,7 +122,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ArticleCa__Artic__75A278F5">
+  <Association Name="FK__ArticleCa__Artic__236943A5">
     <End Role="Article" Type="Self.Article" Multiplicity="1" />
     <End Role="ArticleCategoryInt" Type="Self.ArticleCategoryInt" Multiplicity="*" />
     <ReferentialConstraint>
@@ -134,7 +134,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ArticleCa__Categ__76969D2E">
+  <Association Name="FK__ArticleCa__Categ__245D67DE">
     <End Role="Category" Type="Self.Category" Multiplicity="1" />
     <End Role="ArticleCategoryInt" Type="Self.ArticleCategoryInt" Multiplicity="*" />
     <ReferentialConstraint>
@@ -146,7 +146,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Category__UserId__6FE99F9F">
+  <Association Name="FK__Category__UserId__1DB06A4F">
     <End Role="User" Type="Self.User" Multiplicity="1" />
     <End Role="Category" Type="Self.Category" Multiplicity="*" />
     <ReferentialConstraint>
@@ -158,7 +158,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Comment__Article__7D439ABD">
+  <Association Name="FK__Comment__Article__2B0A656D">
     <End Role="Article" Type="Self.Article" Multiplicity="1" />
     <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
     <ReferentialConstraint>
@@ -170,7 +170,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Comment__UserId__7E37BEF6">
+  <Association Name="FK__Comment__UserId__2BFE89A6">
     <End Role="User" Type="Self.User" Multiplicity="1" />
     <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
     <ReferentialConstraint>
@@ -182,7 +182,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Favorite__Articl__05D8E0BE">
+  <Association Name="FK__Favorite__Articl__339FAB6E">
     <End Role="Article" Type="Self.Article" Multiplicity="1" />
     <End Role="Favorite" Type="Self.Favorite" Multiplicity="*" />
     <ReferentialConstraint>
@@ -194,7 +194,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Favorite__UserId__06CD04F7">
+  <Association Name="FK__Favorite__UserId__3493CFA7">
     <End Role="User" Type="Self.User" Multiplicity="1" />
     <End Role="Favorite" Type="Self.Favorite" Multiplicity="*" />
     <ReferentialConstraint>
@@ -206,7 +206,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Following__Follo__7A672E12">
+  <Association Name="FK__Following__Follo__282DF8C2">
     <End Role="User" Type="Self.User" Multiplicity="1" />
     <End Role="Following" Type="Self.Following" Multiplicity="*" />
     <ReferentialConstraint>
@@ -218,7 +218,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Following__UserI__797309D9">
+  <Association Name="FK__Following__UserI__2739D489">
     <End Role="User" Type="Self.User" Multiplicity="1" />
     <End Role="Following" Type="Self.Following" Multiplicity="*" />
     <ReferentialConstraint>
@@ -230,19 +230,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Reply__ArticleId__01142BA1">
-    <End Role="Article" Type="Self.Article" Multiplicity="1" />
+  <Association Name="FK__Reply__CommentId__2EDAF651">
+    <End Role="Comment" Type="Self.Comment" Multiplicity="1" />
     <End Role="Reply" Type="Self.Reply" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Article">
+      <Principal Role="Comment">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Reply">
-        <PropertyRef Name="ArticleId" />
+        <PropertyRef Name="CommentId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Reply__ReplyToUs__02FC7413">
+  <Association Name="FK__Reply__ReplyToUs__30C33EC3">
     <End Role="User" Type="Self.User" Multiplicity="1" />
     <End Role="Reply" Type="Self.Reply" Multiplicity="*" />
     <ReferentialConstraint>
@@ -254,7 +254,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Reply__UserId__02084FDA">
+  <Association Name="FK__Reply__UserId__2FCF1A8A">
     <End Role="User" Type="Self.User" Multiplicity="1" />
     <End Role="Reply" Type="Self.Reply" Multiplicity="*" />
     <ReferentialConstraint>
@@ -266,7 +266,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__UserRoleI__RoleI__6D0D32F4">
+  <Association Name="FK__UserRoleI__RoleI__1AD3FDA4">
     <End Role="Role" Type="Self.Role" Multiplicity="1" />
     <End Role="UserRoleInt" Type="Self.UserRoleInt" Multiplicity="*" />
     <ReferentialConstraint>
@@ -278,7 +278,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__UserRoleI__UserI__6C190EBB">
+  <Association Name="FK__UserRoleI__UserI__19DFD96B">
     <End Role="User" Type="Self.User" Multiplicity="1" />
     <End Role="UserRoleInt" Type="Self.UserRoleInt" Multiplicity="*" />
     <ReferentialConstraint>
@@ -301,63 +301,63 @@
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserRoleInt" EntityType="Self.UserRoleInt" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Article__UserId__72C60C4A" Association="Self.FK__Article__UserId__72C60C4A">
+    <AssociationSet Name="FK__Article__UserId__208CD6FA" Association="Self.FK__Article__UserId__208CD6FA">
       <End Role="User" EntitySet="User" />
       <End Role="Article" EntitySet="Article" />
     </AssociationSet>
-    <AssociationSet Name="FK__ArticleCa__Artic__75A278F5" Association="Self.FK__ArticleCa__Artic__75A278F5">
+    <AssociationSet Name="FK__ArticleCa__Artic__236943A5" Association="Self.FK__ArticleCa__Artic__236943A5">
       <End Role="Article" EntitySet="Article" />
       <End Role="ArticleCategoryInt" EntitySet="ArticleCategoryInt" />
     </AssociationSet>
-    <AssociationSet Name="FK__ArticleCa__Categ__76969D2E" Association="Self.FK__ArticleCa__Categ__76969D2E">
+    <AssociationSet Name="FK__ArticleCa__Categ__245D67DE" Association="Self.FK__ArticleCa__Categ__245D67DE">
       <End Role="Category" EntitySet="Category" />
       <End Role="ArticleCategoryInt" EntitySet="ArticleCategoryInt" />
     </AssociationSet>
-    <AssociationSet Name="FK__Category__UserId__6FE99F9F" Association="Self.FK__Category__UserId__6FE99F9F">
+    <AssociationSet Name="FK__Category__UserId__1DB06A4F" Association="Self.FK__Category__UserId__1DB06A4F">
       <End Role="User" EntitySet="User" />
       <End Role="Category" EntitySet="Category" />
     </AssociationSet>
-    <AssociationSet Name="FK__Comment__Article__7D439ABD" Association="Self.FK__Comment__Article__7D439ABD">
+    <AssociationSet Name="FK__Comment__Article__2B0A656D" Association="Self.FK__Comment__Article__2B0A656D">
       <End Role="Article" EntitySet="Article" />
       <End Role="Comment" EntitySet="Comment" />
     </AssociationSet>
-    <AssociationSet Name="FK__Comment__UserId__7E37BEF6" Association="Self.FK__Comment__UserId__7E37BEF6">
+    <AssociationSet Name="FK__Comment__UserId__2BFE89A6" Association="Self.FK__Comment__UserId__2BFE89A6">
       <End Role="User" EntitySet="User" />
       <End Role="Comment" EntitySet="Comment" />
     </AssociationSet>
-    <AssociationSet Name="FK__Favorite__Articl__05D8E0BE" Association="Self.FK__Favorite__Articl__05D8E0BE">
+    <AssociationSet Name="FK__Favorite__Articl__339FAB6E" Association="Self.FK__Favorite__Articl__339FAB6E">
       <End Role="Article" EntitySet="Article" />
       <End Role="Favorite" EntitySet="Favorite" />
     </AssociationSet>
-    <AssociationSet Name="FK__Favorite__UserId__06CD04F7" Association="Self.FK__Favorite__UserId__06CD04F7">
+    <AssociationSet Name="FK__Favorite__UserId__3493CFA7" Association="Self.FK__Favorite__UserId__3493CFA7">
       <End Role="User" EntitySet="User" />
       <End Role="Favorite" EntitySet="Favorite" />
     </AssociationSet>
-    <AssociationSet Name="FK__Following__Follo__7A672E12" Association="Self.FK__Following__Follo__7A672E12">
+    <AssociationSet Name="FK__Following__Follo__282DF8C2" Association="Self.FK__Following__Follo__282DF8C2">
       <End Role="User" EntitySet="User" />
       <End Role="Following" EntitySet="Following" />
     </AssociationSet>
-    <AssociationSet Name="FK__Following__UserI__797309D9" Association="Self.FK__Following__UserI__797309D9">
+    <AssociationSet Name="FK__Following__UserI__2739D489" Association="Self.FK__Following__UserI__2739D489">
       <End Role="User" EntitySet="User" />
       <End Role="Following" EntitySet="Following" />
     </AssociationSet>
-    <AssociationSet Name="FK__Reply__ArticleId__01142BA1" Association="Self.FK__Reply__ArticleId__01142BA1">
-      <End Role="Article" EntitySet="Article" />
+    <AssociationSet Name="FK__Reply__CommentId__2EDAF651" Association="Self.FK__Reply__CommentId__2EDAF651">
+      <End Role="Comment" EntitySet="Comment" />
       <End Role="Reply" EntitySet="Reply" />
     </AssociationSet>
-    <AssociationSet Name="FK__Reply__ReplyToUs__02FC7413" Association="Self.FK__Reply__ReplyToUs__02FC7413">
+    <AssociationSet Name="FK__Reply__ReplyToUs__30C33EC3" Association="Self.FK__Reply__ReplyToUs__30C33EC3">
       <End Role="User" EntitySet="User" />
       <End Role="Reply" EntitySet="Reply" />
     </AssociationSet>
-    <AssociationSet Name="FK__Reply__UserId__02084FDA" Association="Self.FK__Reply__UserId__02084FDA">
+    <AssociationSet Name="FK__Reply__UserId__2FCF1A8A" Association="Self.FK__Reply__UserId__2FCF1A8A">
       <End Role="User" EntitySet="User" />
       <End Role="Reply" EntitySet="Reply" />
     </AssociationSet>
-    <AssociationSet Name="FK__UserRoleI__RoleI__6D0D32F4" Association="Self.FK__UserRoleI__RoleI__6D0D32F4">
+    <AssociationSet Name="FK__UserRoleI__RoleI__1AD3FDA4" Association="Self.FK__UserRoleI__RoleI__1AD3FDA4">
       <End Role="Role" EntitySet="Role" />
       <End Role="UserRoleInt" EntitySet="UserRoleInt" />
     </AssociationSet>
-    <AssociationSet Name="FK__UserRoleI__UserI__6C190EBB" Association="Self.FK__UserRoleI__UserI__6C190EBB">
+    <AssociationSet Name="FK__UserRoleI__UserI__19DFD96B" Association="Self.FK__UserRoleI__UserI__19DFD96B">
       <End Role="User" EntitySet="User" />
       <End Role="UserRoleInt" EntitySet="UserRoleInt" />
     </AssociationSet>

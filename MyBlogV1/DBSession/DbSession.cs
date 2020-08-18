@@ -9,14 +9,20 @@ using System.Threading.Tasks;
 
 namespace DBSession
 {
-    public class DbSession
+    public class DbSession: IDbSession
     {
-        private DbContext _dbContext = DbContextFactory.CreateDbContext();
-        
-        // unit of work
-        public bool saveChanges()
+        public DbContext dbContext
         {
-            return _dbContext.SaveChanges() > 0;
+            get
+            {
+                return DbContextFactory.CreateDbContext();
+            }
+        }
+
+        // unit of work
+        public bool SaveChanges()
+        {
+            return dbContext.SaveChanges() > 0;
         }
 
         // using AbstractFactory to create DAL object

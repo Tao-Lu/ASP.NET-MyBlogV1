@@ -20,7 +20,6 @@ namespace Model
             this.ArticleCategoryInt = new HashSet<ArticleCategoryInt>();
             this.Comment = new HashSet<Comment>();
             this.Favorite = new HashSet<Favorite>();
-            this.Reply = new HashSet<Reply>();
         }
     
         public string Id { get; set; }
@@ -39,7 +38,5 @@ namespace Model
         public virtual ICollection<Comment> Comment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Favorite> Favorite { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Reply> Reply { get; set; }
     }
 }

@@ -31,6 +31,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\BlogSystem\BlogSystem\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\..\BlogSystem\BlogSystem\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,6 +53,7 @@
     <Compile Include="IBaseDAL.cs" />
     <Compile Include="ICategoryDAL.cs" />
     <Compile Include="ICommentDAL.cs" />
+    <Compile Include="IDbSession.cs" />
     <Compile Include="IFavoriteDAL.cs" />
     <Compile Include="IFollowingDAL.cs" />
     <Compile Include="IReplyDAL.cs" />
@@ -56,7 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{7182f487-56ec-414d-8838-78d1a9c54425}</Project>
+      <Project>{e72d2ea1-cdfb-4262-9c98-dbbaffa6c1c3}</Project>
       <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>

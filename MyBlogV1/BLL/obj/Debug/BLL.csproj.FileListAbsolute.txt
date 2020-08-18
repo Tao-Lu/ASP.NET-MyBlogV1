@@ -4,3 +4,17 @@ D:\github\MyBlogV1\MyBlogV1\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
 D:\github\MyBlogV1\MyBlogV1\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
 D:\github\MyBlogV1\MyBlogV1\BLL\obj\Debug\BLL.dll
 D:\github\MyBlogV1\MyBlogV1\BLL\obj\Debug\BLL.pdb
+D:\github\MyBlogV1\MyBlogV1\BLL\bin\Debug\DAL.dll
+D:\github\MyBlogV1\MyBlogV1\BLL\bin\Debug\DBSession.dll
+D:\github\MyBlogV1\MyBlogV1\BLL\bin\Debug\IBLL.dll
+D:\github\MyBlogV1\MyBlogV1\BLL\bin\Debug\IDAL.dll
+D:\github\MyBlogV1\MyBlogV1\BLL\bin\Debug\Model.dll
+D:\github\MyBlogV1\MyBlogV1\BLL\bin\Debug\EntityFramework.dll
+D:\github\MyBlogV1\MyBlogV1\BLL\bin\Debug\DAL.pdb
+D:\github\MyBlogV1\MyBlogV1\BLL\bin\Debug\DBSession.pdb
+D:\github\MyBlogV1\MyBlogV1\BLL\bin\Debug\IBLL.pdb
+D:\github\MyBlogV1\MyBlogV1\BLL\bin\Debug\IDAL.pdb
+D:\github\MyBlogV1\MyBlogV1\BLL\bin\Debug\Model.pdb
+D:\github\MyBlogV1\MyBlogV1\BLL\bin\Debug\Model.dll.config
+D:\github\MyBlogV1\MyBlogV1\BLL\bin\Debug\EntityFramework.xml
+D:\github\MyBlogV1\MyBlogV1\BLL\obj\Debug\BLL.csproj.CopyComplete

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7182F487-56EC-414D-8838-78D1A9C54425}</ProjectGuid>
+    <ProjectGuid>{E72D2EA1-CDFB-4262-9C98-DBBAFFA6C1C3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Model</RootNamespace>
@@ -59,6 +59,7 @@
     <Compile Include="Category.cs">
       <DependentUpon>MyBlogV1Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Class1.cs" />
     <Compile Include="Comment.cs">
       <DependentUpon>MyBlogV1Model.tt</DependentUpon>
     </Compile>

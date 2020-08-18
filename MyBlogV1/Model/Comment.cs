@@ -14,6 +14,12 @@ namespace Model
     
     public partial class Comment
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Comment()
+        {
+            this.Reply = new HashSet<Reply>();
+        }
+    
         public string Id { get; set; }
         public System.DateTime CreateDateTime { get; set; }
         public string Content { get; set; }
@@ -23,5 +29,7 @@ namespace Model
     
         public virtual Article Article { get; set; }
         public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Reply> Reply { get; set; }
     }
 }

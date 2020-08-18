@@ -11,7 +11,13 @@ namespace DAL
 {
     public class BaseDAL<T> : IBaseDAL<T> where T: class, new()
     {
-        public DbContext dbContext = DbContextFactory.CreateDbContext();
+        public DbContext dbContext
+        {
+            get
+            {
+                return DbContextFactory.CreateDbContext();
+            }
+        }
 
         public void AddEntity(T entity)
         {
