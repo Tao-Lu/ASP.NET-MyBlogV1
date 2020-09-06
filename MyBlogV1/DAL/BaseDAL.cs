@@ -63,7 +63,5 @@ namespace DAL
 
             return entitiesByPage;
         }
-
-        
     }
 }

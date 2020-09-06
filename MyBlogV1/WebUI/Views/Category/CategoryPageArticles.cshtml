@@ -1,0 +1,97 @@
+﻿@using Webdiyer.WebControls.Mvc
+@model Webdiyer.WebControls.Mvc.PagedList<Model.Article>
+
+@{
+    ViewBag.Title = "CategoryPageArticles";
+}
+
+<h4>CategoryPageArticles</h4>
+
+<p>
+    @if (TempData["same"].ToString() == "true")
+    {
+        @Html.ActionLink("Create a New Article", "CreateArticle", "Article")
+    }
+
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Content)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LikeCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FavoriteCount)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.UserId)
+                </th>*@
+            @*<th>
+                    @Html.DisplayNameFor(model => model.IsRemoved)
+                </th>*@
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                @*<td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateDateTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LikeCount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FavoriteCount)
+                </td>
+                @*<td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>*@
+                @*<td>
+                @Html.DisplayFor(modelItem => item.IsRemoved)
+            </td>*@
+                @if (TempData["same"].ToString() == "true")
+                {
+                    <td>
+                        @Html.ActionLink("Edit", "EditArticle", "Article", new { id = item.Id }, null)
+                    </td>
+                }
+                <td>
+                    @Html.ActionLink("Details", "ArticleDetails", "Article", new { id = item.Id }, null)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+                </td>
+            </tr>
+        }
+    </tbody>
+
+    <tfoot>
+        <tr>
+            <td colspan="6">
+                <nav>
+                    @Html.Pager(Model, new PagerOptions { PageIndexParameterName = "pageIndex", ContainerTagName = "ul", CssClass = "pagination", CurrentPagerItemTemplate = "<li class=\"active\"><a href=\"#\">{0}</a></li>", DisabledPagerItemTemplate = "<li class=\"disabled\"><a>{0}</a></li>", PagerItemTemplate = "<li>{0}</li>", Id = "bootstrappager" })
+                </nav>
+            </td>
+        </tr>
+    </tfoot>
+
+
+
+</table>

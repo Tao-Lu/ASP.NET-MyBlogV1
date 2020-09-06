@@ -17,11 +17,11 @@ namespace BLL
             baseDAL = dbSession.CategoryDAL;
         }
 
-        public List<Article> GetCategoryArticles(string categoryId)
+        public List<Article> GetCategoryArticles(string categoryId, int pageIndex, int pageSize, out int totalCount)
         {
             List<Article> articles = new List<Article>();
 
-            foreach (ArticleCategoryInt articleCategoryInt in dbSession.ArticleCategoryIntDAL.GetEntities(m => !m.IsRemoved && m.CategoryId == categoryId))
+            foreach (ArticleCategoryInt articleCategoryInt in dbSession.ArticleCategoryIntDAL.GetEntitiesByPageOrdered(pageIndex, pageSize, out totalCount, m => !m.IsRemoved && m.CategoryId == categoryId, m => m.CreateDateTime, false))
             {
                 Article article = dbSession.ArticleDAL.GetEntity(m => !m.IsRemoved && m.Id == articleCategoryInt.ArticleId);
                 if (article != null)

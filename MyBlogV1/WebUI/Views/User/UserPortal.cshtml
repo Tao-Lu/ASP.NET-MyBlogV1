@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "UserPortal";
+}
+
+<h2>UserPortal</h2>
+
+<div style="margin:20px 0 10px 0;"></div>
+<div class="easyui-tabs" style="width:auto;height:auto">
+    <div title="@ViewBag.Name Details" style="padding:10px">
+        @Html.Action("UserDetails", "User", new { id = ViewBag.Id })
+    </div>
+    <div title="@ViewBag.Name Categorty" style="padding:10px">
+        @Html.Action("CategoryList", "Category", new { id = ViewBag.Id })
+    </div>
+    <div title="@ViewBag.Name Articles" style="padding:10px">
+        @Html.Action("ArticleList", "Article", new { id = ViewBag.Id })
+    </div>
+    <div title="@ViewBag.Name Favorite Articles" style="padding:10px">
+        @Html.Action("FavoriteList", "Article", new { id = ViewBag.Id })
+    </div>
+</div>
+
+@section headers
+{
+    <link href="~/Scripts/jquery-easyui-1.9.7/themes/icon.css" rel="stylesheet" />
+    <link href="~/Scripts/jquery-easyui-1.9.7/themes/default/easyui.css" rel="stylesheet" />
+    <link href="~/Scripts/jquery-easyui-1.9.7/demo/demo.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-easyui-1.9.7/jquery.min.js"></script>
+    <script src="~/Scripts/jquery-easyui-1.9.7/jquery.easyui.min.js"></script>
+}

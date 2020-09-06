@@ -1,0 +1,319 @@
+﻿@model WebUI.Models.ArticleViewModels.ArticleDetailsViewModel
+
+@{
+    ViewBag.Title = "ArticleDetails";
+}
+
+<h2>ArticleDetails</h2>
+
+<div class="row">
+
+    @if (ViewBag.SamePerson == null || !ViewBag.SamePerson)
+    {
+        <div class="col-md-4">
+            <div>
+                <h4>UserDetailsViewModel</h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ArticleUser.Email)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.ArticleUser.Email)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ArticleUser.Name)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.ArticleUser.Name)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ArticleUser.CreateDateTime)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.ArticleUser.CreateDateTime)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ArticleUser.FollowerCount)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.ArticleUser.FollowerCount)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ArticleUser.FollowingCount)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.ArticleUser.FollowingCount)
+                    </dd>
+
+                </dl>
+                @Html.ActionLink("Author Details", "UserPortal", "User", new { id = Model.ArticleUser.Id }, null)
+                <br />
+                @Html.ActionLink("Follow", "Follow", "User", new { articleId = Model.Article.Id, followingUserId = Model.ArticleUser.Id }, null)
+                <br />
+                @if (TempData["Follow"] != null && TempData["Follow"].ToString() == "true")
+                {
+                    <span>follow successfully</span>
+                }
+
+                @if (TempData["Follow"] != null && TempData["Follow"].ToString() == "false")
+                {
+                    <span>follow already</span>
+                }
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="col-md-4">
+            @Html.ActionLink("My Details", "UserPortal", "User", new { id = Model.ArticleUser.Id }, null)
+        </div>
+
+    }
+
+
+
+    <div class="col-md-8">
+        <div>
+            @*<h4>ArticleDetailsViewModel</h4>*@
+            <hr />
+            <dl class="dl-horizontal">
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Article.Title)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Article.Title)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Article.Content)
+                </dt>
+
+                <dd>
+                    @Html.Raw(Model.Article.Content)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Article.CreateDateTime)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Article.CreateDateTime)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Article.LikeCount)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Article.LikeCount)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Article.FavoriteCount)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Article.FavoriteCount)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.categories)
+                </dt>
+
+                @foreach (var category in Model.categories)
+                {
+                    <dd style="float:left; ">@category.Name</dd>
+                }
+
+
+            </dl>
+        </div>
+
+        <div>
+            @if (ViewBag.SamePerson != null && ViewBag.SamePerson)
+            {
+                @Html.ActionLink("edit", "editarticle", new { id = Model.Article.Id })
+            }
+            else
+            {
+                @Html.ActionLink("Like", "LikeArticle", new { id = Model.Article.Id })
+                <br />
+                @Html.ActionLink("Favorite", "FavoriteArticle", new { id = Model.Article.Id })
+                <br />
+                if (TempData["FavoriteAlready"] != null && TempData["FavoriteAlready"].ToString() == "true")
+                {
+                    <span>added already</span>
+                }
+
+                if (TempData["FavoriteAlready"] != null && TempData["FavoriteAlready"].ToString() == "false")
+                {
+                    <span>added successfully</span>
+                }
+            }
+
+            @*<div>
+                    @Html.ActionLink("Back to Article List", "ArticleList")
+                </div>*@
+        </div>
+
+
+
+
+
+
+        @*comment start*@
+        <div class="ui comments">
+            <h3 class="ui dividing header">Comments</h3>
+
+            <div class="actions">
+                <a class="reply">
+                    @*new comment*@
+                    <input type="text" name="txtComment" id="txtComment" value="" />
+
+                    @if (Session["userId"] == null)
+                    {
+                        <button onclick="newComment('false')">new comment</button>
+                    }
+                    else
+                    {
+                        <button onclick="newComment('true')">new comment</button>
+                    }
+
+                </a>
+            </div>
+
+            @if (Model.CommentReplies != null)
+            {
+                foreach (var commentReplies in Model.CommentReplies)
+                {
+                    <div class="comment" style="margin-top:30px">
+                        @*profile pic*@
+                        <a class="avatar">
+                            <img src="~/ProfilePics/default.jpg" />
+                        </a>
+
+                        @*content*@
+                        <div class="content">
+                            @*<a class="author">@commentReplies.Key.User.Name</a>*@
+                            @Html.ActionLink((string)commentReplies.Key.User.Name, "UserDetails", "User", new { id = commentReplies.Key.User.Id }, new { @class = "author" })
+                            <div class="metadata">
+                                <span class="date">@commentReplies.Key.CreateDateTime</span>
+                            </div>
+                            <div class="text">
+                                @commentReplies.Key.Content
+                            </div>
+                            <div class="actions">
+                                <a class="reply">
+                                    <input type="text" name="txtReply" id="@commentReplies.Key.Id" value="" />
+                                    <button id="@commentReplies.Key.Id" onclick="newReply('@commentReplies.Key.Id', '@commentReplies.Key.UserId', '@commentReplies.Key.Id')">new reply</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    //reply
+                    <div class="comments" style="margin-left:40px">
+                        @foreach (var reply in commentReplies.Value)
+                        {
+                            <div class="comment" style="margin-top:5px">
+                                <a class="avatar">
+                                    <img src="~/ProfilePics/default.jpg" />
+                                </a>
+                                <div class="content">
+                                    @*<a class="author">@reply.User1.Name</a> reply to <a class="author">@reply.User.Name</a>*@
+                                    @Html.ActionLink((string)reply.User1.Name, "UserDetails", "User", new { id = reply.User1.Id }, new { @class = "author" })
+                                    reply to
+                                    @Html.ActionLink((string)reply.User.Name, "UserDetails", "User", new { id = reply.User.Id }, new { @class = "author" })
+
+                                    <div class="metadata">
+                                        <span class="date">@reply.CreateDateTime</span>
+                                    </div>
+                                    <div class="text">
+                                        @reply.Content
+                                    </div>
+                                    <div class="actions">
+                                        <a class="reply">
+                                            @*new reply*@
+                                            <input type="text" name="txtReply" id="@reply.Id" value="" />
+                                            <button id="@reply.Id" onclick="newReply('@commentReplies.Key.Id', '@reply.User1.Id', '@reply.Id')">new reply</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            }
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@*end*@
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/UI-Comment-master/package.js"></script>
+<link href="~/UI-Comment-master/comment.min.css" rel="stylesheet" />
+<link href="~/UI-Comment-master/comment.css" rel="stylesheet" />
+
+
+@section headers
+{
+    <script>
+        function newComment(login) {
+            if (login == "false") {
+                alert("you must login first");
+                window.location.href = "/User/Login";
+            }
+            else {
+                $.ajax({
+                url: "/Comment/CreateComment",
+                type: "post",
+                data: {
+                    ArticleId: '@Model.Article.Id',
+                    Content: document.getElementById("txtComment").value
+                       }
+                }).done(() => {
+                location.reload();
+            });
+            }
+
+
+
+        }
+
+        function newReply(commentId, replyToUserId, txtId) {
+            $.ajax({
+                url: "/Reply/CreateReply",
+                type: "post",
+                data: {
+                    CommentId: commentId,
+                    ReplyToUserId: replyToUserId,
+                    Content: document.getElementById(txtId).value
+                }
+            }).done(() => {
+                //alert("new comment added");
+                location.reload();
+            });
+        }
+    </script>
+}

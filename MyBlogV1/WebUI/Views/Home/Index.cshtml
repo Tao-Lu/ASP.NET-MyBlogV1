@@ -1,12 +1,62 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
-
+﻿@{ ViewBag.Title = "Home Page"; }
 <div class="jumbotron">
     <h1>ASP.NET</h1>
     <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
     <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
 </div>
+
+
+<h2><b><u>new articles</u></b></h2>
+@for (var i = 0; i < 6; i++)
+{
+    <div class="col-md-4">
+        <h2> @Html.ActionLink((string)ViewBag.newArticles[i].Title, "ArticleDetails", "Article", new { id = @ViewBag.newArticles[i].Id }, null) </h2>
+        @*<p style="margin:0px, 3px, 0px, 3px">
+                @Html.Raw(@ViewBag.newArticles[i].Content)
+            </p>*@
+        <p>Like Count: @ViewBag.newArticles[i].LikeCount</p>
+        <p>Favorite Count: @ViewBag.newArticles[i].FavoriteCount</p>
+    </div>
+}
+
+<br />
+<br />
+<br />
+
+<h2><b><u>most like articles</u></b></h2>
+@for (var i = 0; i < 6; i++)
+{
+    <div class="col-md-4">
+        <h2> @Html.ActionLink((string)ViewBag.mostLikeArticles[i].Title, "ArticleDetails", "Article", new { id = @ViewBag.mostLikeArticles[i].Id }, null) </h2>
+        @*<p style="margin:0px, 3px, 0px, 3px">
+                @Html.Raw(@ViewBag.mostLikeArticles[i].Content)
+            </p>*@
+        <p>Like Count: @ViewBag.mostLikeArticles[i].LikeCount</p>
+        <p>Favorite Count: @ViewBag.mostLikeArticles[i].FavoriteCount</p>
+    </div>
+}
+
+<br />
+<br />
+<br />
+
+<h2><b><u>most favorite articles</u></b></h2>
+@for (var i = 0; i < 6; i++)
+{
+    <div class="col-md-4">
+        <h2>@Html.ActionLink((string)ViewBag.mostFavoriteArticles[i].Title, "ArticleDetails", "Article", new { id = @ViewBag.mostFavoriteArticles[i].Id }, null)</h2>
+        
+        @*<p style="margin:0px, 3px, 0px, 3px">
+                @Html.Raw(@ViewBag.mostFavoriteArticles[i].Content)
+            </p>*@
+        <p>Like Count: @ViewBag.mostFavoriteArticles[i].LikeCount</p>
+        <p>Favorite Count: @ViewBag.mostFavoriteArticles[i].FavoriteCount</p>
+    </div>
+}
+
+
+
+
 
 <div class="row">
     <div class="col-md-4">

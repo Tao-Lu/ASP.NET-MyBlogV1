@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "GetFollowing";
+}
+
+<h2>GetFollowing</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>
+                Name
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in ViewBag.Following)
+        {
+            <tr>
+                <td>
+                    @user.Name
+                </td>
+                <td>
+                    @Html.ActionLink("details", "UserDetails", "User", new { id = user.Id }, null)
+                </td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>

@@ -10,7 +10,7 @@ namespace IBLL
     public interface IUserBLL: IBaseBLL<User>
     {
         bool Register(string email, string password);
-        bool Login(string email, string password);
+        bool Login(string email, string password, out string userId, ref List<string> roles);
         bool UpdatePassword(string userId, string oldPassword, string newPassword);
         List<User> GetUserFollowers(string userId);
         List<User> GetUserFollowings(string userId);

@@ -1,0 +1,77 @@
+﻿@model WebUI.Models.UserViewModels.UserDetailsViewModel
+
+@{
+    ViewBag.Title = "UserDetails";
+}
+
+<h2>UserDetails</h2>
+
+<div>
+    @*<h4>UserDetailsViewModel</h4>*@
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FollowerCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FollowerCount) | @Html.ActionLink("list", "GetFollower", "User", new { id = Model.Id}, null)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FollowingCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FollowingCount) | @Html.ActionLink("list", "GetFollowing", "User", new { id = Model.Id}, null)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalArticleCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalArticleCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalCategoryCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalCategoryCount)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @if (Model.Id == Session["userId"].ToString())
+    {
+        @Html.ActionLink("Edit", "EditUser", new { id = Model.Id })
+    }
+
+</p>

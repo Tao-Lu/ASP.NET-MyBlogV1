@@ -42,12 +42,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IArticleBLL.cs" />
+    <Compile Include="IArticleCategoryIntBLL.cs" />
     <Compile Include="IBaseBLL.cs" />
     <Compile Include="ICategoryBLL.cs" />
     <Compile Include="ICommentBLL.cs" />
+    <Compile Include="IFavoriteBLL.cs" />
+    <Compile Include="IFollowingBLL.cs" />
     <Compile Include="IReplyBLL.cs" />
     <Compile Include="IRoleBLL.cs" />
     <Compile Include="IUserBLL.cs" />
+    <Compile Include="IUserRoleIntBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

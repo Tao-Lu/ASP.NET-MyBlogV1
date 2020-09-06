@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace IBLL
 {
-    public interface ICategoryBLL
+    public interface ICategoryBLL: IBaseBLL<Category>
     {
-        List<Article> GetCategoryArticles(string categoryId);
+        List<Article> GetCategoryArticles(string categoryId, int pageIndex, int pageSize, out int totalCount);
         bool CreateANewCategory(string userId, String categoryName);
     }
 }

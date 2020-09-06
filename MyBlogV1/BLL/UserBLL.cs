@@ -21,27 +21,51 @@ namespace BLL
 
         public bool AddFollowing(string currentUserId, string followingUserId)
         {
+            if(currentUserId == followingUserId)
+            {
+                return false;
+            }
+            
             User currentUser = dbSession.UserDAL.GetEntity(m => !m.IsRemoved && m.Id == currentUserId);
             User followingUser = dbSession.UserDAL.GetEntity(m => !m.IsRemoved && m.Id == followingUserId);
 
             if (currentUser != null && followingUser != null)
             {
-                currentUser.FollowingCount += 1;
-                followingUser.FollowerCount += 1;
-                dbSession.UserDAL.EditEntity(currentUser);
-                dbSession.UserDAL.EditEntity(followingUser);
-
-                Following newFollowing = new Following
+                bool contains = false;
+                foreach (Following following in dbSession.FollowingDAL.GetEntities(m => m.UserId == currentUserId && !m.IsRemoved))
                 {
-                    Id = Guid.NewGuid().ToString(),
-                    CreateDateTime = DateTime.Now,
-                    UserId = currentUserId,
-                    FollowingUserId = followingUserId,
-                    IsRemoved = false
-                };
-                dbSession.FollowingDAL.AddEntity(newFollowing);
+                    if (following.FollowingUserId == followingUserId)
+                    {
+                        contains = true;
+                    }
+                }
+                
+                
+                // follow already
+                if (contains)
+                {
+                    return false;
+                }
+                else
+                {
+                    // new follow
+                    currentUser.FollowingCount += 1;
+                    followingUser.FollowerCount += 1;
+                    dbSession.UserDAL.EditEntity(currentUser);
+                    dbSession.UserDAL.EditEntity(followingUser);
 
-                return dbSession.SaveChanges();
+                    Following newFollowing = new Following
+                    {
+                        Id = Guid.NewGuid().ToString(),
+                        CreateDateTime = DateTime.Now,
+                        UserId = currentUserId,
+                        FollowingUserId = followingUserId,
+                        IsRemoved = false
+                    };
+                    dbSession.FollowingDAL.AddEntity(newFollowing);
+
+                    return dbSession.SaveChanges();
+                }
             }
 
             return false;
@@ -159,11 +183,22 @@ namespace BLL
             return roles;
         }
 
-        public bool Login(string email, string password)
+        public bool Login(string email, string password, out string userId, ref List<string> roles)
         {
+            userId = null;
             User user = dbSession.UserDAL.GetEntity(m => !m.IsRemoved && m.Email == email);
             if(user != null)
             {
+                userId = user.Id;
+                foreach (UserRoleInt userRoleInt in dbSession.UserRoleIntDAL.GetEntities(m => !m.IsRemoved && m.UserId == user.Id))
+                {
+                    Role role = dbSession.RoleDAL.GetEntity(m => !m.IsRemoved && m.Id == userRoleInt.RoleId);
+                    if(role != null)
+                    {
+                        roles.Add(role.Name);
+                    }
+                }
+
                 return user.PasswordEncrypted == MD5Encryption64(password);
             }
 
@@ -204,19 +239,39 @@ namespace BLL
                     FollowingCount = 0,
                     IsRemoved = false
                 };
-                dbSession.UserDAL.AddEntity(user);
+                dbSession.UserDAL.AddEntity(newUser);
 
+                Role role = dbSession.RoleDAL.GetEntity(m => !m.IsRemoved && m.Name == "level1");
+                string roleId;
+                if (role == null)
+                {
+                    Role newRole = new Role
+                    {
+                        Id = Guid.NewGuid().ToString(),
+                        Name = "level1",
+                        CreateDateTime = DateTime.Now,
+                        IsRemoved = false
+                    };
+                    dbSession.RoleDAL.AddEntity(newRole);
+
+                    roleId = newRole.Id;
+                }
+                else
+                {
+                    roleId = role.Id;
+                }
+                
                 // assigns a role to the user
-                //UserRoleInt userRoleInt = new UserRoleInt
-                //{
-                //    Id = Guid.NewGuid().ToString(),
-                //    UserId = newUser.Id,
-                //    RoleId = ,
-                //    StartDateTime = DateTime.Now,
-                //    EndDateTime = null,
-                //    IsRemoved = false
-                //};
-                //dbSession.UserRoleIntDAL.AddEntity(userRoleInt);
+                UserRoleInt userRoleInt = new UserRoleInt
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    UserId = newUser.Id,
+                    RoleId = roleId,
+                    StartDateTime = DateTime.Now,
+                    EndDateTime = null,
+                    IsRemoved = false
+                };
+                dbSession.UserRoleIntDAL.AddEntity(userRoleInt);
 
                 return dbSession.SaveChanges();
             }
@@ -230,6 +285,38 @@ namespace BLL
                 user.FollowingCount = 0;
                 user.IsRemoved = false;
                 dbSession.UserDAL.EditEntity(user);
+
+                Role role = dbSession.RoleDAL.GetEntity(m => !m.IsRemoved && m.Name == "level1");
+                string roleId;
+                if (role == null)
+                {
+                    Role newRole = new Role
+                    {
+                        Id = Guid.NewGuid().ToString(),
+                        Name = "level1",
+                        CreateDateTime = DateTime.Now,
+                        IsRemoved = false
+                    };
+                    dbSession.RoleDAL.AddEntity(newRole);
+
+                    roleId = newRole.Id;
+                }
+                else
+                {
+                    roleId = role.Id;
+                }
+
+                // assigns a role to the user
+                UserRoleInt userRoleInt = new UserRoleInt
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    UserId = user.Id,
+                    RoleId = roleId,
+                    StartDateTime = DateTime.Now,
+                    EndDateTime = null,
+                    IsRemoved = false
+                };
+                dbSession.UserRoleIntDAL.AddEntity(userRoleInt);
 
                 return dbSession.SaveChanges();
             }

@@ -1,0 +1,110 @@
+﻿@model WebUI.Models.ArticleViewModels.EditArticleViewModel
+
+@{
+    ViewBag.Title = "EditArticle";
+}
+
+<h2>EditArticle</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    @*<h4>EditArticleViewModel</h4>*@
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.HiddenFor(model => model.ArticleId, htmlAttributes: new { @class = "control-label col-md-2" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.Content, new { @id = "ckeditor", @class = "form-control", @row = "200" })
+            @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+
+            <script>
+                CKEDITOR.replace("ckeditor");
+            </script>
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CategoryIds, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <ul class="categoryIds" id="categoryIds">
+                @foreach (var categoryItem in ViewBag.AllUserCategories)
+                {
+                    bool contains = false;
+                    foreach (string categoryId in Model.CategoryIds)
+                    {
+                        if (categoryId == categoryItem.Id.ToString())
+                        {
+                            contains = true;
+                        }
+                    }
+
+                    if (contains)
+                    {
+                        <li style="display:inline-block; list-style: none"><input type="checkbox" checked="checked" name="CategoryIds" value="@categoryItem.Id" />@categoryItem.Name</li>
+                    }
+                    else
+                    {
+                        <li style="display:inline-block; list-style: none"><input type="checkbox" name="CategoryIds" value="@categoryItem.Id" />@categoryItem.Name</li>
+                    }
+                }
+
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input id="submit" type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+@*<div>
+    @Html.ActionLink("Back to Article List", "ArticleList")
+</div>*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        $(function () {
+            $("#submit").click(function () {
+
+                var checked_checkboxes = $("#categoryIds input[type=checkbox]:checked");
+                if (checked_checkboxes.length == 0) {
+                    alert("select at lease one category");
+
+                    return false;
+                }
+
+                CKEDITOR.instances.Content.updateElement();
+
+                return true;
+            });
+        });
+    </script>
+
+}
+
+
+@section Headers{
+    <script src="~/ckeditor/ckeditor.js"></script>
+}

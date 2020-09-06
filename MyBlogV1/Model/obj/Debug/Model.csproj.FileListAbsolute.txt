@@ -1,7 +1,7 @@
+D:\github\MyBlogV1\MyBlogV1\Model\bin\Debug\EntityFramework.dll
 D:\github\MyBlogV1\MyBlogV1\Model\bin\Debug\Model.dll.config
 D:\github\MyBlogV1\MyBlogV1\Model\bin\Debug\Model.dll
 D:\github\MyBlogV1\MyBlogV1\Model\bin\Debug\Model.pdb
-D:\github\MyBlogV1\MyBlogV1\Model\bin\Debug\EntityFramework.dll
 D:\github\MyBlogV1\MyBlogV1\Model\bin\Debug\EntityFramework.SqlServer.dll
 D:\github\MyBlogV1\MyBlogV1\Model\bin\Debug\EntityFramework.xml
 D:\github\MyBlogV1\MyBlogV1\Model\bin\Debug\EntityFramework.SqlServer.xml

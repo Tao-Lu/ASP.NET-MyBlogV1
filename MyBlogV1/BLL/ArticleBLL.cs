@@ -115,5 +115,58 @@ namespace BLL
 
             return null;
         }
+
+        public bool CreateArticle(string title, string content, List<string> categoryIds, string userId)
+        {
+            Article article = new Article
+            {
+                Id = Guid.NewGuid().ToString(),
+                Title = title,
+                Content = content,
+                CreateDateTime = DateTime.Now,
+                LikeCount = 0,
+                FavoriteCount = 0,
+                UserId = userId,
+                IsRemoved = false
+            };
+            dbSession.ArticleDAL.AddEntity(article);
+
+            foreach(string categoryId in categoryIds)
+            {
+                dbSession.ArticleCategoryIntDAL.AddEntity(new ArticleCategoryInt
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    CreateDateTime = DateTime.Now,
+                    ArticleId = article.Id,
+                    CategoryId = categoryId,
+                    IsRemoved = false
+                });
+            }
+
+            return dbSession.SaveChanges();
+        }
+
+        public List<Article> GetPageArticles(string userId, int pageIndex, int pageSize, out int totalCount)
+        {
+            List<Article> articles = new List<Article>();
+            foreach(Article article in dbSession.ArticleDAL.GetEntitiesByPageOrdered(pageIndex, pageSize, out totalCount, m => m.UserId == userId && !m.IsRemoved, m => m.CreateDateTime, false))
+            {
+                articles.Add(article);
+            }
+
+            return articles;
+        }
+
+        public List<Article> GetPageFavoriteArticles(string userId, int pageIndex, int pageSize, out int totalCount)
+        {
+            List<Article> articles = new List<Article>();
+
+            foreach (Favorite favorite in dbSession.FavoriteDAL.GetEntitiesByPageOrdered(pageIndex, pageSize, out totalCount, m => m.UserId == userId && !m.IsRemoved, m => m.CreateDateTime, false))
+            {
+                articles.Add(favorite.Article);
+            }
+
+            return articles;
+        }
     }
 }
